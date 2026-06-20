@@ -1,43 +1,72 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="/src/styles.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tauri App</title>
-    <script type="module" src="/src/main.ts" defer></script>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>German Learning Suite</title>
 
-  <body>
-    <main class="container">
-      <h1>Welcome to Tauri</h1>
+  <script type="module" src="/src/main.ts"></script>
+</head>
 
-      <div class="row">
-        <a href="https://vite.dev" target="_blank">
-          <img src="/src/assets/vite.svg" class="logo vite" alt="Vite logo" />
-        </a>
-        <a href="https://tauri.app" target="_blank">
-          <img
-            src="/src/assets/tauri.svg"
-            class="logo tauri"
-            alt="Tauri logo"
-          />
-        </a>
-        <a href="https://www.typescriptlang.org/docs" target="_blank">
-          <img
-            src="/src/assets/typescript.svg"
-            class="logo typescript"
-            alt="typescript logo"
-          />
-        </a>
+<body>
+  <div class="app-layout">
+
+    <aside class="sidebar">
+      <div class="logo-area">
+        <h2>German Learning Suite</h2>
       </div>
-      <p>Click on the Tauri logo to learn more about the framework</p>
 
-      <form class="row" id="greet-form">
-        <input id="greet-input" placeholder="Enter a name..." />
-        <button type="submit">Greet</button>
-      </form>
-      <p id="greet-msg"></p>
-    </main>
-  </body>
+      <nav>
+        <button class="nav-btn active">Dashboard</button>
+        <button class="nav-btn">Vocabulary</button>
+        <button class="nav-btn">Flashcards</button>
+        <button class="nav-btn">Hören Lab</button>
+        <button class="nav-btn">Reading Lab</button>
+        <button class="nav-btn">Statistics</button>
+        <button class="nav-btn">Settings</button>
+      </nav>
+    </aside>
+
+    <main class="content">
+
+  <h1>Vocabulary Manager</h1>
+
+  <div class="card">
+
+    <h3>Add New Vocabulary</h3>
+
+    <br>
+
+    <input id="germanWord" placeholder="German Word">
+
+    <br><br>
+
+    <input id="article" placeholder="Article (der/die/das)">
+
+    <br><br>
+
+    <input id="englishMeaning" placeholder="English Meaning">
+
+    <br><br>
+
+    <button id="saveWord">
+      Save Vocabulary
+    </button>
+
+  </div>
+
+  <br>
+
+  <div class="card">
+
+    <h3>Saved Vocabulary</h3>
+
+    <ul id="vocabularyList"></ul>
+
+  </div>
+
+</main>
+
+  </div>
+</body>
 </html>

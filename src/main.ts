@@ -1,22 +1,108 @@
-import { invoke } from "@tauri-apps/api/core";
+import "./styles.css";
 
-let greetInputEl: HTMLInputElement | null;
-let greetMsgEl: HTMLElement | null;
-
-async function greet() {
-  if (greetMsgEl && greetInputEl) {
-    // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-    greetMsgEl.textContent = await invoke("greet", {
-      name: greetInputEl.value,
-    });
-  }
+interface VocabularyItem {
+  german: string;
+  article: string;
+  english: string;
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-  greetInputEl = document.querySelector("#greet-input");
-  greetMsgEl = document.querySelector("#greet-msg");
-  document.querySelector("#greet-form")?.addEventListener("submit", (e) => {
-    e.preventDefault();
-    greet();
+const saveButton = document.getElementById(
+  "saveWord"
+) as HTMLButtonElement;
+
+const vocabularyList = document.getElementById(
+  "vocabularyList"
+) as HTMLUListElement;
+
+function loadVocabulary() {
+  const storedData =
+    localStorage.getItem("vocabulary");
+
+  if (!storedData) return;
+
+  const vocabulary: VocabularyItem[] =
+    JSON.parse(storedData);
+
+  vocabulary.forEach((word) => {
+    displayWord(word);
   });
+}
+
+function displayWord(word: VocabularyItem) {
+  const item = document.createElement("li");
+
+  item.textContent =
+    `${word.article} ${word.german} = ${word.english}`;
+
+  vocabularyList.appendChild(item);
+}
+
+saveButton?.addEventListener("click", () => {
+
+  const germanWord =
+    (document.getElementById(
+      "germanWord"
+    ) as HTMLInputElement).value;
+
+  const article =
+    (document.getElementById(
+      "article"
+    ) as HTMLInputElement).value;
+
+  const englishMeaning =
+    (document.getElementById(
+      "englishMeaning"
+    ) as HTMLInputElement).value;
+
+  if (
+    !germanWord ||
+    !article ||
+    !englishMeaning
+  ) {
+    alert("Please fill all fields");
+    return;
+  }
+
+  const newWord: VocabularyItem = {
+    german: germanWord,
+    article: article,
+    english: englishMeaning,
+  };
+
+  const existingData =
+    localStorage.getItem("vocabulary");
+
+  const vocabulary: VocabularyItem[] =
+    existingData
+      ? JSON.parse(existingData)
+      : [];
+
+  vocabulary.push(newWord);
+
+  localStorage.setItem(
+    "vocabulary",
+    JSON.stringify(vocabulary)
+  );
+
+  displayWord(newWord);
+
+  (
+    document.getElementById(
+      "germanWord"
+    ) as HTMLInputElement
+  ).value = "";
+
+  (
+    document.getElementById(
+      "article"
+    ) as HTMLInputElement
+  ).value = "";
+
+  (
+    document.getElementById(
+      "englishMeaning"
+    ) as HTMLInputElement
+  ).value = "";
 });
+
+loadVocabulary();
