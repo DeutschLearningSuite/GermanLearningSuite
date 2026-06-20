@@ -141,3 +141,48 @@ nav {
 .welcome-panel p {
   line-height: 1.8;
 }
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+th {
+  text-align: left;
+  padding: 12px;
+  color: var(--gold-dark);
+  border-bottom: 2px solid #eee;
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.delete-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.restore-btn {
+  background: #27ae60;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  opacity: 0.9;
+}
+
+.restore-btn:hover {
+  opacity: 0.9;
+}

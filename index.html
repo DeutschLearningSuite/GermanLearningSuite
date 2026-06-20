@@ -17,15 +17,64 @@
       </div>
 
       <nav>
-        <button class="nav-btn active">🏠 Dashboard</button>
-        <button class="nav-btn">📚 Vocabulary</button>
-        <button class="nav-btn">🎴 Flashcards</button>
-        <button class="nav-btn">🎧 Hören Lab</button>
-        <button class="nav-btn">📖 Reading Lab</button>
-        <button class="nav-btn">📊 Statistics</button>
-        <button class="nav-btn">⚙ Settings</button>
-        <button class="nav-btn">🗑 Trash</button>
-      </nav>
+
+  <button
+    id="dashboardBtn"
+    class="nav-btn active"
+  >
+    🏠 Dashboard
+  </button>
+
+  <button
+    id="vocabularyBtn"
+    class="nav-btn"
+  >
+    📚 Vocabulary
+  </button>
+
+  <button
+    id="flashcardsBtn"
+    class="nav-btn"
+  >
+    🎴 Flashcards
+  </button>
+
+  <button
+    id="hoerenBtn"
+    class="nav-btn"
+  >
+    🎧 Hören Lab
+  </button>
+
+  <button
+    id="readingBtn"
+    class="nav-btn"
+  >
+    📖 Reading Lab
+  </button>
+
+  <button
+    id="statisticsBtn"
+    class="nav-btn"
+  >
+    📊 Statistics
+  </button>
+
+  <button
+    id="settingsBtn"
+    class="nav-btn"
+  >
+    ⚙ Settings
+  </button>
+
+  <button
+    id="trashBtn"
+    class="nav-btn"
+  >
+    🗑 Trash
+  </button>
+
+</nav>
     </aside>
 
     <main class="content">
@@ -79,31 +128,77 @@
 
       <br>
 
-      <div class="card">
+<div class="card">
 
-        <h3>Saved Vocabulary</h3>
+  <div id="vocabularyView">
 
-<table id="vocabularyTable">
+    <h3>Saved Vocabulary</h3>
 
-  <thead>
+    <table id="vocabularyTable">
 
- <tr>
-  <th>Article</th>
-  <th>German</th>
-  <th>English</th>
-  <th>Level</th>
-  <th>Delete</th>
-  <th>Restore</th>
-</tr>
+      <thead>
+        <tr>
+          <th>Article</th>
+          <th>German</th>
+          <th>English</th>
+          <th>Level</th>
+          <th>Delete</th>
+          <th>Restore</th>
+        </tr>
+      </thead>
 
-  </thead>
+      <tbody id="vocabularyList">
 
-  <tbody id="vocabularyList">
+      </tbody>
 
-  </tbody>
+    </table>
 
-</table>
-      </div>
+  </div>
+
+  <div
+    id="trashView"
+    style="display:none; margin-top:20px;"
+  >
+
+    <h3>🗑 Trash Bin</h3>
+
+    <br>
+
+    <button id="selectAllTrash">
+      Select All
+    </button>
+
+    <button id="restoreSelected">
+      Restore Selected
+    </button>
+
+    <button id="deleteSelected">
+      Delete Selected
+    </button>
+
+    <br><br>
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>Select</th>
+          <th>Article</th>
+          <th>German</th>
+          <th>English</th>
+          <th>Level</th>
+        </tr>
+      </thead>
+
+      <tbody id="trashList">
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>
 
     </main>
 
