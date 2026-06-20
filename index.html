@@ -13,59 +13,98 @@
 
     <aside class="sidebar">
       <div class="logo-area">
-        <h2>German Learning Suite</h2>
+        <h2>🇩🇪 German Learning Suite</h2>
       </div>
 
       <nav>
-        <button class="nav-btn active">Dashboard</button>
-        <button class="nav-btn">Vocabulary</button>
-        <button class="nav-btn">Flashcards</button>
-        <button class="nav-btn">Hören Lab</button>
-        <button class="nav-btn">Reading Lab</button>
-        <button class="nav-btn">Statistics</button>
-        <button class="nav-btn">Settings</button>
+        <button class="nav-btn active">🏠 Dashboard</button>
+        <button class="nav-btn">📚 Vocabulary</button>
+        <button class="nav-btn">🎴 Flashcards</button>
+        <button class="nav-btn">🎧 Hören Lab</button>
+        <button class="nav-btn">📖 Reading Lab</button>
+        <button class="nav-btn">📊 Statistics</button>
+        <button class="nav-btn">⚙ Settings</button>
+        <button class="nav-btn">🗑 Trash</button>
       </nav>
     </aside>
 
     <main class="content">
+      <div id="undoContainer"></div>
 
-  <h1>Vocabulary Manager</h1>
+      <h1>Vocabulary Manager</h1>
 
-  <div class="card">
+      <div class="card">
 
-    <h3>Add New Vocabulary</h3>
+        <h3>Add New Vocabulary</h3>
 
-    <br>
+        <br>
 
-    <input id="germanWord" placeholder="German Word">
+        <input
+          id="germanWord"
+          placeholder="German Word"
+        >
 
-    <br><br>
+        <br><br>
 
-    <input id="article" placeholder="Article (der/die/das)">
+        <input
+          id="article"
+          placeholder="Article (der/die/das)"
+        >
 
-    <br><br>
+        <br><br>
 
-    <input id="englishMeaning" placeholder="English Meaning">
+        <input
+          id="englishMeaning"
+          placeholder="English Meaning"
+        >
+<br><br>
 
-    <br><br>
+<select id="level">
 
-    <button id="saveWord">
-      Save Vocabulary
-    </button>
+  <option value="A1">A1</option>
+<option value="A2">A2</option>
+<option value="B1">B1</option>
+<option value="B2">B2</option>
+<option value="C1">C1</option>
+<option value="C2">C2</option>
+<option value="Exam">Exam</option>
+</select>
+        <br><br>
 
-  </div>
+        <button id="saveWord">
+          Save Vocabulary
+        </button>
 
-  <br>
+      </div>
 
-  <div class="card">
+      <br>
 
-    <h3>Saved Vocabulary</h3>
+      <div class="card">
 
-    <ul id="vocabularyList"></ul>
+        <h3>Saved Vocabulary</h3>
 
-  </div>
+<table id="vocabularyTable">
 
-</main>
+  <thead>
+
+   <tr>
+  <th>Article</th>
+  <th>German</th>
+  <th>English</th>
+  <th>Level</th>
+  <th>Delete</th>
+</tr>
+
+  </thead>
+
+  <tbody id="vocabularyList">
+
+  </tbody>
+
+</table>
+      </div>
+
+    </main>
 
   </div>
 </body>
